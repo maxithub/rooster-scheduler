@@ -1,0 +1,15 @@
+.header-container {
+    padding: 12px;
+    height: auto;
+}
+
+.main-container {
+    overflow: auto;
+    flex-grow: 1;
+}
+
+.nav-container {
+    width: 20%;
+    min-width: 240px;
+    max-width: 360px;
+}

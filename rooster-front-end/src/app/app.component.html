@@ -1,10 +1,12 @@
-<mat-toolbar>
-    <span>{{ title }}</span>
+<mat-toolbar color="primary" class="header-container">
+    <h2>Rooster Scheduler</h2>
 </mat-toolbar>
 
-<mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>Drawer content</mat-drawer>
-    <mat-drawer-content>
-        <button mat-button>I am an Angular Components button</button> 
+<mat-drawer-container class="main-container">
+    <mat-drawer mode="side" opened class="nav-container">
+        <app-nav></app-nav>
+    </mat-drawer>
+    <mat-drawer-content class="content-container">
+        <router-outlet></router-outlet>
     </mat-drawer-content>
 </mat-drawer-container>

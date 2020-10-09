@@ -1,0 +1,15 @@
+<div class="standard-form" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%">
+    <form [formGroup]="jobForm" (ngSubmit)="create()">
+        <mat-form-field fxFlex="30%">
+            <mat-label>Job Name</mat-label>
+            <input placeholder="Job Name" required matInput formControlName="jobName">
+        </mat-form-field>
+        <mat-form-field fxFlex="30%">
+            <mat-label>CRON Expression</mat-label>
+            <input placeholder="CRON Expression" required matInput formControlName="cronExpr">
+        </mat-form-field>
+        <div class="form-element" fxFlex="30%">
+            <button mat-raised-button type="submit" class="button" [disabled]="!jobForm.valid">Create</button>
+        </div>
+    </form>
+</div>
