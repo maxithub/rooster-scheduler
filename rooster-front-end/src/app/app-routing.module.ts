@@ -5,7 +5,7 @@ import { SearchJobComponent } from './job/search-job/search-job.component';
 
 const routes: Routes = [
   { path: 'job', component: CreateJobComponent },
-  { path: 'jobs', component: SearchJobComponent }
+  { path: 'jobs', component: SearchJobComponent },
 ];
 
 @NgModule({

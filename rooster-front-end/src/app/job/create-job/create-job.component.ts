@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Job, HttpJob, ShellJob } from '../job.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
-export enum JobType {
-  HTTP, Shell
-}
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-job',
@@ -12,13 +7,6 @@ export enum JobType {
   styleUrls: ['./create-job.component.css']
 })
 export class CreateJobComponent implements OnInit {
-  // name: string;
-  // cronExpr: string;
-  // type: JobType;
-  // url: string;
-  // host: string;
-  // port: number;
-  // path: string;
 
   jobForm: FormGroup;
 
@@ -34,5 +22,4 @@ export class CreateJobComponent implements OnInit {
   create(): void {
     console.log(this.jobForm.value);
   }
-
 }

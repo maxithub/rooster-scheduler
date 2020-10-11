@@ -1,12 +1,11 @@
-<mat-toolbar color="primary" class="header-container">
-    <h2>Rooster Scheduler</h2>
-</mat-toolbar>
-
-<mat-drawer-container class="main-container">
-    <mat-drawer mode="side" opened class="nav-container">
+<div class="main-container" fxLayout="column" >
+  <app-head fxFlex="initial"></app-head>
+  <mat-drawer-container class="body-container" fxFlex="grow" autosize>
+    <mat-drawer [opened]="nav.opened" class="nav-container" [style.width.px]="nav.menuTextShowed ? 240 : 64" [mode]="nav.mode">
         <app-nav></app-nav>
     </mat-drawer>
     <mat-drawer-content class="content-container">
         <router-outlet></router-outlet>
     </mat-drawer-content>
-</mat-drawer-container>
+  </mat-drawer-container>
+</div>

@@ -4,8 +4,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-app-root {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.menu, .menu > .mat-list-item-content > .mat-list-item {
+    height: 40px !important;
+}
+
+.menu > .mat-list-item-content {
+    padding: 0 !important;
 }

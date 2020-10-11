@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NavService } from '../nav.service';
+import { Router } from '@angular/router';
 
 export class Menu {
   constructor(
@@ -11,10 +13,11 @@ export class Menu {
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit, OnDestroy {
   menus: Menu[];
+  url = '';
 
-  constructor() {
+  constructor(public nav: NavService, private route: Router) {
     this.menus = [
       new Menu('Create Job', '/job', 'create'),
       new Menu('Search Job', '/jobs', 'search'),
@@ -22,6 +25,16 @@ export class NavComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.route.url.subscribe(segments => {
+    //   console.log(segments);
+    // });
+  }
+
+  isActive(url: string): boolean {
+    return this.route.url.startsWith(url);
+  }
+
+  ngOnDestroy(): void {
   }
 
 }
