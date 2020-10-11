@@ -11,3 +11,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .menu > .mat-list-item-content {
     padding: 0 !important;
 }
+
+h3.caption {
+    margin: 12px;
+}

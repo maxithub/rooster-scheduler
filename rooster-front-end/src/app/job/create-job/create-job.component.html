@@ -1,15 +1,22 @@
-<h3 style="margin: 12px;">Create Job</h3>
+<h3 class="caption">Job Details</h3>
 <mat-divider></mat-divider>
 <form [formGroup]="jobForm" (ngSubmit)="create()">
-    <div class="standard-form" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%">
-    <mat-form-field fxFlex="30">
+    <div class="standard-form" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="12px">
+    <!-- <div class="standard-form" fxLayout.xs="column" fxLayout="row wrap" fxLayoutGap="12px" ngClass.xs="row"> -->
+        <mat-form-field fxFlex="50">
         <mat-label>Job Name</mat-label>
         <input placeholder="Job Name" required matInput formControlName="jobName">
     </mat-form-field>
-    <mat-form-field fxFlex="30">
+    <mat-form-field fxFlex="50">
         <mat-label>CRON Expression</mat-label>
         <input placeholder="CRON Expression" required matInput formControlName="cronExpr">
     </mat-form-field>
+    <div fxFlex="100">
+    <mat-radio-group aria-label="Select the job type">
+        <mat-radio-button value="1">HTTP</mat-radio-button>
+        <mat-radio-button value="2">Shell</mat-radio-button>
+      </mat-radio-group>
+    </div>
     </div>
     <div style="padding: 0 12px 12px 12px;">
         <button mat-raised-button type="submit" class="button" [disabled]="!jobForm.valid">Create</button>
