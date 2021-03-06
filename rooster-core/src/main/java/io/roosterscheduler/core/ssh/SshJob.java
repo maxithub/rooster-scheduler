@@ -12,8 +12,7 @@ import org.quartz.JobExecutionException;
 import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.io.StringReader;
+import java.io.*;
 import java.security.GeneralSecurityException;
 import java.security.KeyPair;
 import java.time.Duration;
@@ -81,11 +80,14 @@ public class SshJob extends QuartzJobBean {
                 }
                 session.auth().verify(authTimeout);
 
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 try (ClientChannel channel = session.createExecChannel(command)) {
-                    channel.setOut(System.out);
+                    channel.setOut(byteArrayOutputStream);
                     channel.open().verify(openChannelTimeout);
                     channel.waitFor(EnumSet.of(CLOSED), executionTimeout);
                     int exit = channel.getExitStatus();
+                    String shellOutput = byteArrayOutputStream.toString();
+                    log.info("------------- Shell Output -------------\n{}", shellOutput);
                     if (exit != 0) {
                         String message = String.format("Failed to execute command: %s, exit status: %d", command, exit);
                         throw new JobExecutionException(message);
